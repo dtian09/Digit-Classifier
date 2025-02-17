@@ -114,6 +114,17 @@ model.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)  
 model.fc = nn.Linear(model.fc.in_features, 10)  # Modify final layer for 10 classes
 model = model.to(device)
 
+# Freeze all layers except the last few layers (optional)
+for param in model.parameters():
+    param.requires_grad = False  # Freeze all layers
+
+# Unfreeze the last few layers
+for param in model.layer4.parameters():  # Last convolutional block
+    param.requires_grad = True
+
+for param in model.fc.parameters():  # Fully connected layer
+    param.requires_grad = True
+
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-4)
