@@ -1,0 +1,8 @@
+streamlit
+torch
+torchvision
+pandas
+psycopg2-binary
+streamlit_drawable_canvas
+opencv-python-headless  # Install OpenCV (cv2)
+Pillow  # Install PIL (Python Imaging Library)

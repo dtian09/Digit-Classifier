@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 #Early Stopping (Stops training if accuracy doesn’t improve for 3 consecutive epochs)
-#Option: data augmentation of training data (Yes or No)
 #Optimized Training Strategy (AdamW, StepLR for stable learning rate decay)
 #Computes Classification Accuracy, TPR, and TNR per Class
 import torch
@@ -92,56 +90,19 @@ def save_model(model, path):
     torch.save(model.state_dict(), path)
     print(f"Model saved to {path}")
 
-
-# Define transformations (NO augmentation)
-#transform = transforms.Compose([
-#    transforms.Grayscale(num_output_channels=3),  # Convert grayscale to 3-channel
-#    transforms.ToTensor(),
-#    transforms.Normalize((0.5,), (0.5,))
-#])
-def transform_data(data_augmentation):
-    if data_augmentation =='Yes':
-      # Data augmentation and transformations
-      train_transform = transforms.Compose([
-          transforms.Grayscale(num_output_channels=3),  # Convert to 3-channel image
-          transforms.RandomRotation(10),  # Rotate images slightly
-          transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)),  # Random translation
-          transforms.RandomResizedCrop(28, scale=(0.9, 1.1)),  # Random scaling
-          transforms.ToTensor(),
-          transforms.Normalize((0.5,), (0.5,))  # Normalize like during training
-      ])
-    else:#NO augmentation
-      train_transform = transforms.Compose([
-          transforms.Grayscale(num_output_channels=3),  # Convert to 3-channel image
-          transforms.ToTensor(),
-          transforms.Normalize((0.5,), (0.5,))  # Normalize like during training
-      ])
-     
-    test_transform = transforms.Compose([
-        transforms.Grayscale(num_output_channels=3),
-        transforms.ToTensor(),
-        transforms.Normalize((0.5,), (0.5,))
-    ])
-    return train_transform, test_transform
-
-#data_augmentation='Yes'
-data_augmentation='No'
-
-print(F"data augmentation: '{data_augmentation}'\n")
-
-train_transform, test_transform = transform_data(data_augmentation)
-
-if data_augmentation=='Yes':
-   model_path="./model/resnet18_mnist_data_augmentation.pth"
-else:
-   model_path="./model/resnet18_mnist.pth"
-
 # Device configuration
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# Define transformations (NO augmentation)
+transform = transforms.Compose([
+    transforms.Grayscale(num_output_channels=3),  # Convert grayscale to 3-channel
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
 # Load MNIST dataset
-train_dataset = torchvision.datasets.MNIST(root='./data', train=True, transform=train_transform, download=True)
-test_dataset = torchvision.datasets.MNIST(root='./data', train=False, transform=test_transform, download=True)
+train_dataset = torchvision.datasets.MNIST(root='./data', train=True, transform=transform, download=True)
+test_dataset = torchvision.datasets.MNIST(root='./data', train=False, transform=transform, download=True)
 
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True, num_workers=2)
 test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False, num_workers=2)
@@ -173,5 +134,4 @@ train(model, train_loader, criterion, optimizer, scheduler, num_epochs=20)
 evaluate(model, test_loader)
 
 # Save the trained model
-
-save_model(model,model_path)
+save_model(model, "./resnet18_mnist.pth")
