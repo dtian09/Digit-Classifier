@@ -44,7 +44,7 @@ $ ps aux | grep streamlit
 ```
 Then, 
 ```
-kill -9 <pid>
+$ kill -9 <pid>
 ```
 # References:
 
