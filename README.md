@@ -21,7 +21,7 @@ An interactive web application developed using PyTorch (deep learning), Streamli
       ```
        $ docker-compose up --build -d
       ```
-- 2. To access the web interface, open a web browser e.g. Chrome and go to the address: 
+- 2. To access the web interface, open a web browser e.g. Chrome and enter the address: 
       ```
        http://<ip_address>:8501
       ```
@@ -31,16 +31,16 @@ An interactive web application developed using PyTorch (deep learning), Streamli
   
 - 4. To stop the web application:
   ```
-  exit         
+  $ exit         
   ```
   or 
   ```
-  docker-compose down        
+  $ docker-compose down        
   ```
 
 If the web app cannot be stopped, find its process id by: 
 ```
-ps aux | grep streamlit 
+$ ps aux | grep streamlit 
 ```
 Then, 
 ```
@@ -48,6 +48,5 @@ kill -9 <pid>
 ```
 # References:
 
-<a href="[https://arxiv.org/abs/1512.03385]" target="_blank" rel="noopener noreferrer">Deep Residual Learning for Image Recognition</a>
 - [1] [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 - [2] [MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset) 
