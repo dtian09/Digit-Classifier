@@ -47,10 +47,7 @@ Then,
 kill -9 <pid>
 ```
 # References:
-- [1] <a href="[https://arxiv.org/abs/1512.03385]" target="_blank" rel="noopener noreferrer">Deep Residual Learning for Image Recognition</a>
+
+<a href="[https://arxiv.org/abs/1512.03385]" target="_blank" rel="noopener noreferrer">Deep Residual Learning for Image Recognition</a>
 - [1] [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 - [2] [MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset) 
-
-# License
-
-GNU GLP version 3
