@@ -4,9 +4,9 @@ An interactive web application developed using PyTorch (deep learning), Streamli
 
 # Installation
 
-- Step 1. Install Python 3.10 or higher version, PostgresSQL and Docker (using admin or root permission) on your linux machine.
-- Step 2. Create a `project' directory on your linux machine.
-- Step 3. Download the following files under the `project' directory:
+- 1. Install Python 3.10 or higher version, PostgresSQL and Docker (using admin or root permission) on your linux machine.
+- 2. Create a `project' directory on your linux machine.
+- 3. Download the following files under the `project' directory:
 	 - Dockerfile (Docker script for building an image)
 	 - Docker-compose.yml (Docker script to setup multiple containers) 
 	 - app.py (Web Application Code)
@@ -47,6 +47,7 @@ Then,
 kill -9 <pid>
 ```
 # References:
+- [1] <a href="[https://arxiv.org/abs/1512.03385]" target="_blank" rel="noopener noreferrer">Deep Residual Learning for Image Recognition</a>
 - [1] [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 - [2] [MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset) 
 
