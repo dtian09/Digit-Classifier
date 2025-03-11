@@ -9,12 +9,12 @@ An interactive web application developed using PyTorch (deep learning), Streamli
 - 1. Install Python 3.10 or higher version, PostgresSQL and Docker (using admin or root permission) on your linux machine.
 - 2. Create a `project' directory on your linux machine.
 - 3. Download the following files under the `project' directory:
-	 - digitclassifier.py (Python code to fine-tune the pretrained resnet18 model and save it as 'resnet18_mnist.pth')
-	 - Dockerfile (Docker script for building an image)
-	 - Docker-compose.yml (Docker script to setup multiple containers) 
-	 - app.py (Web Application Code)
-         - requirements.txt (Python libraries required to build the web application)  
-         - init.sql (SQL script to setup the backend Postgres database)
+     - digitclassifier.py (Python code to fine-tune the pretrained resnet18 model and save it as 'resnet18_mnist.pth')
+     - Dockerfile (Docker script for building an image)
+     - Docker-compose.yml (Docker script to setup multiple containers) 
+     - app.py (Web Application Code)
+     - requirements.txt (Python libraries required to build the web application)
+     - init.sql (SQL script to setup the backend Postgres database)
            
 # Fine-tune the Pretrained ResNet-18 Model
 
