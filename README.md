@@ -2,6 +2,8 @@
 
 An interactive web application developed using PyTorch (deep learning), Streamlit (Web application framework), PostgresSQL (database) and Docker (containerization) to recognize the hand written digits of the user. The pretrained ResNet-18 CNN model [1] was fine-tuned on the MNIST hand written digits database [2] for recognizing the hand written digits of the user.
 
+[live web app](http://49.13.30.50:8501/)
+
  # Installation
 
 - 1. Install Python 3.10 or higher version, PostgresSQL and Docker (using admin or root permission) on your linux machine.
